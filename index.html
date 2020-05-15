@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head >
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <title>Weather Dashboard</title>
+  <title >Weather Dashboard</title>
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
     crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-  <div class="jumbotron jumbotron-fluid text-center">
+  <div class="jumbotron jumbotron-fluid text-center bg-greygreen" style='color:aliceblue'>
     <div class="container">
       <h1 class="display-4">Weather Dashboard</h1>
-      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <p class="lead">Your first site to visit every day.</p>
     </div>
   </div>
 
   <div class='row'>
     <div class='col-3'>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input id='cityInput' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button id='citySubmit' class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+      <div id='history'>
+
+      </div>
+
     </div>
     <div class='col-9'>
+      <!-- Card to display the current weather -->
       <div class="card">
-        <div class="card-header">
-          Featured
-        </div>
+        <h3 class="card-header">
+          City Date
+        </h3>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <img src='' id='current-icon' style='max-width: 90%;height: auto; margin-top:-20px;'>
+          <p class="card-text" id='current-temp'>Temperature:</p>
+          <p class="card-text" id='current-humidity'>Humidity:</p>
+          <p class="card-text" id='current-wind'>Wind Speed:</p>
+          <p class="card-text" id='current-uv'>UV Index</p>
         </div>
       </div>
 
       <div class='row'>
+        <!--  -->
         <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
           <div class="card bg-light text-black">
             <img src="assets/images/doodles.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text">Last updated 3 mins ago</p>
+              <h5 class="card-text" id='forecast1-date'></h5>
+              <img id='forecast1-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+              <p class="card-text" id='forecast1-temp' style="font-size: 1em"></p>
+              <p class="card-text" id='forecast1-humidity' style="font-size: 1em"></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
+          <div class="card bg-light text-black">
+            <img src="assets/images/doodles.png" class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-text" id='forecast2-date'></h5>
+              <img id='forecast2-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+              <p class="card-text" id='forecast2-temp' style="font-size: 1em"></p>
+              <p class="card-text" id='forecast2-humidity' style="font-size: 1em"></p>
             </div>
           </div>
         </div>
@@ -54,9 +77,10 @@
           <div class="card bg-light text-black">
             <img src="assets/images/doodles.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text">Last updated 3 mins ago</p>
+              <h5 class="card-text" id='forecast3-date'></h5>
+              <img id='forecast3-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+              <p class="card-text" id='forecast3-temp' style="font-size: 1em"></p>
+              <p class="card-text" id='forecast3-humidity' style="font-size: 1em"></p>
             </div>
           </div>
         </div>
@@ -65,9 +89,10 @@
           <div class="card bg-light text-black">
             <img src="assets/images/doodles.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text">Last updated 3 mins ago</p>
+              <h5 class="card-text" id='forecast4-date'></h5>
+              <img id='forecast4-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+              <p class="card-text" id='forecast4-temp' style="font-size: 1em"></p>
+              <p class="card-text" id='forecast4-humidity' style="font-size: 1em"></p>
             </div>
           </div>
         </div>
@@ -76,25 +101,14 @@
           <div class="card bg-light text-black">
             <img src="assets/images/doodles.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text">Last updated 3 mins ago</p>
+              <h5 class="card-text" id='forecast5-date'></h5>
+              <img id='forecast5-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+              <p class="card-text" id='forecast5-temp' style="font-size: 1em"></p>
+              <p class="card-text" id='forecast5-humidity' style="font-size: 1em"></p>
             </div>
           </div>
         </div>
 
-        <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
-          <div class="card bg-light text-black">
-            <img src="assets/images/doodles.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text">Last updated 3 mins ago</p>
-            </div>
-          </div>
-        </div>
-
-       
 
 
       </div>
@@ -103,9 +117,7 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
@@ -113,7 +125,132 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <script>
+    var APIKey = "166a433c57516f51dfab1f7edaed8413" //"329ebdf55f70c1a2c32d5e5f2c8342fa";
+    if(localStorage.getItem('city')){
+      $('#cityInput').val(JSON.parse(localStorage.getItem('city')));
+      showWeather();
+    }
 
+    // Listner ffor the search history
+    $('#history').on('click', function (event) {
+      event.preventDefault();
+      console.log(event.target);
+      $('#cityInput').val(event.target.id);
+      showWeather();
+
+    })
+
+
+    // Listner for the search button
+    $('#citySubmit').on('click', function(event){
+      event.preventDefault();
+      showWeatheradd();
+    });
+
+
+
+
+
+    function showWeather() {
+
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = mm + '/' + dd + '/' + yyyy;
+      var city = $('#cityInput').val();
+      localStorage.setItem('city',JSON.stringify(city));
+      // Here we are building the URL we need to query the database
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+        "q=" + city + "&cnt=6&appid=" + APIKey;
+
+      var queryURLforecast = "https://api.openweathermap.org/data/2.5/forecast/daily?" +
+        "q=" + city + "&cnt=6&appid=" + APIKey;
+
+      // Here we run our AJAX call to the OpenWeatherMap API to show the current weather
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function (response) {
+        // Show the UV index
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+        get_uv(lat, lon);
+
+
+        var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+        $('.card-header').html(city + ' ' + today);
+        console.log(response);
+        $('#current-icon').attr('src', 'http://openweathermap.org/img/wn/' + response.weather[0].icon + '@2x.png');
+        $('#current-temp').text('Temperature: ' + tempF.toFixed(2) + ' F');
+        $('#current-humidity').text("Humidity: " + response.main.humidity + '%');
+        $('#current-wind').text("Wind Speed: " + response.wind.speed + ' MPH');
+
+      });
+
+      // Here we run our AJAX call to the OpenWeatherMap API
+      $.ajax({
+        url: queryURLforecast,
+        method: "GET"
+      }).then(function (response) {
+
+        for (i = 1; i < 6; i++) {
+          var someDate = new Date();
+          var numberOfDaysToAdd = i;
+          someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+          var dd = someDate.getDate();
+          var mm = someDate.getMonth() + 1;
+          var y = someDate.getFullYear();
+          var someFormattedDate = mm + '/' + dd + '/' + y;
+          var tempF = (response.list[i - 1].temp.day - 273.15) * 1.80 + 32;
+
+          $('#forecast' + i + '-date').text(someFormattedDate);
+          $('#forecast' + i + '-icon').attr('src', 'http://openweathermap.org/img/wn/' + response.list[i - 1].weather[0].icon + '@2x.png');
+          $('#forecast' + i + '-temp').text('Temp: ' + tempF.toFixed(2) + ' F');
+          $('#forecast' + i + '-humidity').text("Humidity: " + response.list[i - 1].humidity + '%');
+          $('#forecast' + i + '-wind').text("Wind Speed: " + response.list[i - 1].speed + ' MPH');
+
+        }
+
+      });
+
+
+    }
+
+    function showWeatheradd(){
+
+      // Add to the history list
+      var city = $('#cityInput').val();
+      $('#history').append('<button type="button" class="btn btn-primary btn-lg btn-block" id="' + city.trim() + '">' + city + '</button>');
+      showWeather();
+    }
+
+    function get_uv(lat, lon) {
+
+      queryUV = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
+      uv = $.ajax({
+        url: queryUV,
+        method: "GET"
+      }).then(function (response) {
+        var uvIndex = response.value;
+        $('#current-uv').text('UV Index:' + uvIndex);
+        if (uvIndex < 2.5) {
+          uvColor = 'green'
+        }
+        else if (uvIndex >= 2.5 && uvIndex < 5.5) {
+          uvColor = 'yellow'
+        }
+        else if (uvIndex >= 5.5 && uvIndex < 7.5) {
+          uvColor = 'orange'
+        }
+        else {
+          uvColor = 'red'
+        }
+        $('#current-uv').attr('style', 'color:' + uvColor)
+
+      });
+
+    }
 
 
   </script>
