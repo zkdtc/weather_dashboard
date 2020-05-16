@@ -1,3 +1,2 @@
-# Code Quiz
- This code quiz will throw a series of questions to you one by one, and you choose your answer to these questions. If you answered correctly, your time budget will increase by 5. Otherwise, your time budget will decrease by 5. When you have finished all the questions or the time is out, game is over, and you could enter your initials. The score board will be displayed afterward.  
-
+# Weather Dashboard
+This is a dashboard to show the current and next 5 days weather forecast for a city. The cities you entered will be stored for easy browse, and the last entered city will be stored as the default city for your next visit. We provide weather icon, temperature, humidity, wind speed and UV index. The UV index turns green-yellow-orange-red from 0 to >10. The 5 day weather forecast gives weather icon, temperature and humidity for each day. Enjoy the app at  https://zkdtc.github.io/weather_dashboard/ .

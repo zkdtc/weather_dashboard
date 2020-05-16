@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<head >
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <title >Weather Dashboard</title>
+  <title>Weather Dashboard</title>
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
     crossorigin="anonymous"></script>
 </head>
@@ -19,103 +19,104 @@
       <p class="lead">Your first site to visit every day.</p>
     </div>
   </div>
+  <div class='background-image'>
+    <div class='row'>
+      <div class='col-3'>
+        <form class="form-inline" style='margin-bottom:3%;'>
+          <input id='cityInput' class="form-control mr-sm-2" style='margin-left:5%;' type="search" placeholder="Search" aria-label="Search">
+          <button id='citySubmit' class="btn btn-outline-success my-2 my-sm-0" style='margin-left:3%;' type="submit">Search</button>
+        </form>
+        <div id='history'>
 
-  <div class='row'>
-    <div class='col-3'>
-      <form class="form-inline">
-        <input id='cityInput' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button id='citySubmit' class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      <div id='history'>
+        </div>
 
       </div>
+      <div class='col-9'>
+        <!-- Card to display the current weather -->
+        <div class="card" style='width:95%;'>
+          <h3 class="card-header">
+            City Date
+          </h3>
+          <div class="card-body">
+            <img src='' id='current-icon' style='max-width: 90%;height: auto; margin-top:-20px;'>
+            <p class="card-text" id='current-temp'>Temperature:</p>
+            <p class="card-text" id='current-humidity'>Humidity:</p>
+            <p class="card-text" id='current-wind'>Wind Speed:</p>
+            <p class="card-text" id='current-uv'>UV Index</p>
+          </div>
+        </div>
 
+        <div class='row'>
+          <!--  -->
+          <div class='' style='width:17%; margin:2% 1% 2% 1%;'>
+            <div class="card bg-light text-black">
+              <img src="assets/images/doodles.png" class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-text" id='forecast1-date'></h5>
+                <img id='forecast1-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+                <p class="card-text" id='forecast1-temp' style="font-size: 1em"></p>
+                <p class="card-text" id='forecast1-humidity' style="font-size: 1em"></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class='' style='width:17%; margin:2% 1% 2% 1%;'>
+            <div class="card bg-light text-black">
+              <img src="assets/images/doodles.png" class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-text" id='forecast2-date'></h5>
+                <img id='forecast2-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+                <p class="card-text" id='forecast2-temp' style="font-size: 1em"></p>
+                <p class="card-text" id='forecast2-humidity' style="font-size: 1em"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class='' style='width:17%; margin:2% 1% 2% 1%;'>
+            <div class="card bg-light text-black">
+              <img src="assets/images/doodles.png" class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-text" id='forecast3-date'></h5>
+                <img id='forecast3-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+                <p class="card-text" id='forecast3-temp' style="font-size: 1em"></p>
+                <p class="card-text" id='forecast3-humidity' style="font-size: 1em"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class='' style='width:17%; margin:2% 1% 2% 1%;'>
+            <div class="card bg-light text-black">
+              <img src="assets/images/doodles.png" class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-text" id='forecast4-date'></h5>
+                <img id='forecast4-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+                <p class="card-text" id='forecast4-temp' style="font-size: 1em"></p>
+                <p class="card-text" id='forecast4-humidity' style="font-size: 1em"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class='' style='width:17%; margin:2% 1% 2% 1%;'>
+            <div class="card bg-light text-black">
+              <img src="assets/images/doodles.png" class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-text" id='forecast5-date'></h5>
+                <img id='forecast5-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
+                <p class="card-text" id='forecast5-temp' style="font-size: 1em"></p>
+                <p class="card-text" id='forecast5-humidity' style="font-size: 1em"></p>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
     </div>
-    <div class='col-9'>
-      <!-- Card to display the current weather -->
-      <div class="card">
-        <h3 class="card-header">
-          City Date
-        </h3>
-        <div class="card-body">
-          <img src='' id='current-icon' style='max-width: 90%;height: auto; margin-top:-20px;'>
-          <p class="card-text" id='current-temp'>Temperature:</p>
-          <p class="card-text" id='current-humidity'>Humidity:</p>
-          <p class="card-text" id='current-wind'>Wind Speed:</p>
-          <p class="card-text" id='current-uv'>UV Index</p>
-        </div>
-      </div>
-
-      <div class='row'>
-        <!--  -->
-        <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
-          <div class="card bg-light text-black">
-            <img src="assets/images/doodles.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-text" id='forecast1-date'></h5>
-              <img id='forecast1-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
-              <p class="card-text" id='forecast1-temp' style="font-size: 1em"></p>
-              <p class="card-text" id='forecast1-humidity' style="font-size: 1em"></p>
-            </div>
-          </div>
-        </div>
 
 
-        <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
-          <div class="card bg-light text-black">
-            <img src="assets/images/doodles.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-text" id='forecast2-date'></h5>
-              <img id='forecast2-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
-              <p class="card-text" id='forecast2-temp' style="font-size: 1em"></p>
-              <p class="card-text" id='forecast2-humidity' style="font-size: 1em"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
-          <div class="card bg-light text-black">
-            <img src="assets/images/doodles.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-text" id='forecast3-date'></h5>
-              <img id='forecast3-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
-              <p class="card-text" id='forecast3-temp' style="font-size: 1em"></p>
-              <p class="card-text" id='forecast3-humidity' style="font-size: 1em"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
-          <div class="card bg-light text-black">
-            <img src="assets/images/doodles.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-text" id='forecast4-date'></h5>
-              <img id='forecast4-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
-              <p class="card-text" id='forecast4-temp' style="font-size: 1em"></p>
-              <p class="card-text" id='forecast4-humidity' style="font-size: 1em"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class='' style='width:19%; margin:2% 0.5% 2% 0.5%;'>
-          <div class="card bg-light text-black">
-            <img src="assets/images/doodles.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-text" id='forecast5-date'></h5>
-              <img id='forecast5-icon' src="" style='max-width: 50%;height: auto; margin-top:-20px;'>
-              <p class="card-text" id='forecast5-temp' style="font-size: 1em"></p>
-              <p class="card-text" id='forecast5-humidity' style="font-size: 1em"></p>
-            </div>
-          </div>
-        </div>
-
-
-
-      </div>
-    </div>
   </div>
-
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -126,7 +127,7 @@
     crossorigin="anonymous"></script>
   <script>
     var APIKey = "166a433c57516f51dfab1f7edaed8413" //"329ebdf55f70c1a2c32d5e5f2c8342fa";
-    if(localStorage.getItem('city')){
+    if (localStorage.getItem('city')) {
       $('#cityInput').val(JSON.parse(localStorage.getItem('city')));
       showWeather();
     }
@@ -142,7 +143,7 @@
 
 
     // Listner for the search button
-    $('#citySubmit').on('click', function(event){
+    $('#citySubmit').on('click', function (event) {
       event.preventDefault();
       showWeatheradd();
     });
@@ -159,7 +160,7 @@
       var yyyy = today.getFullYear();
       today = mm + '/' + dd + '/' + yyyy;
       var city = $('#cityInput').val();
-      localStorage.setItem('city',JSON.stringify(city));
+      localStorage.setItem('city', JSON.stringify(city));
       // Here we are building the URL we need to query the database
       var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
         "q=" + city + "&cnt=6&appid=" + APIKey;
@@ -217,7 +218,7 @@
 
     }
 
-    function showWeatheradd(){
+    function showWeatheradd() {
 
       // Add to the history list
       var city = $('#cityInput').val();
