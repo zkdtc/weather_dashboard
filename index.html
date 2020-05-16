@@ -183,7 +183,7 @@
         $('.card-header').html(city + ' ' + today);
         console.log(response);
         $('#current-icon').attr('src', 'http://openweathermap.org/img/wn/' + response.weather[0].icon + '@2x.png');
-        $('#current-temp').text('Temperature: ' + tempF.toFixed(2) + ' F');
+        $('#current-temp').text('Temperature: ' + tempF.toFixed(2) + String.fromCharCode(176)+' F');
         $('#current-humidity').text("Humidity: " + response.main.humidity + '%');
         $('#current-wind').text("Wind Speed: " + response.wind.speed + ' MPH');
 
@@ -207,10 +207,10 @@
 
           $('#forecast' + i + '-date').text(someFormattedDate);
           $('#forecast' + i + '-icon').attr('src', 'http://openweathermap.org/img/wn/' + response.list[i - 1].weather[0].icon + '@2x.png');
-          $('#forecast' + i + '-temp').text('Temp: ' + tempF.toFixed(2) + ' F');
+          $('#forecast' + i + '-temp').text('Temp: ' + tempF.toFixed(2) + String.fromCharCode(176)+' F');
           $('#forecast' + i + '-humidity').text("Humidity: " + response.list[i - 1].humidity + '%');
           $('#forecast' + i + '-wind').text("Wind Speed: " + response.list[i - 1].speed + ' MPH');
-
+          $('#cityInput').val('');
         }
 
       });
